@@ -7,6 +7,7 @@ interface CV {
   targetRole: string;
   targetCompany: string;
   templateName: string;
+  isPrimary: boolean;
   createdAt: string;
 }
 
@@ -85,7 +86,10 @@ export default async function DashboardPage() {
                 className="flex items-center justify-between bg-white border border-gray-200 rounded-xl px-5 py-4 hover:border-blue-300 transition-colors"
               >
                 <div>
-                  <div className="font-medium text-sm text-gray-900">{cv.targetRole}</div>
+                  <div className="font-medium text-sm text-gray-900 flex items-center gap-2">
+                    {cv.targetRole}
+                    {cv.isPrimary && <span className="text-yellow-400 text-lg" title="CV Principal">★</span>}
+                  </div>
                   <div className="text-xs text-gray-400 mt-0.5">{cv.targetCompany} · {cv.templateName}</div>
                 </div>
                 <div className="text-xs text-gray-400">

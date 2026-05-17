@@ -4,6 +4,7 @@ import ProfileForm from '@/components/profile/ProfileForm';
 import ExperienceSection from '@/components/profile/ExperienceSection';
 import EducationSection from '@/components/profile/EducationSection';
 import SkillsSection from '@/components/profile/SkillsSection';
+import CvUploadSection from '@/components/profile/CvUploadSection';
 
 interface Profile {
   id: string;
@@ -53,6 +54,8 @@ export default async function ProfilePage() {
         <h1 className="text-2xl font-bold text-gray-900">Mi perfil</h1>
         <p className="text-gray-500 text-sm mt-1">Esta información se usa para generar tus CVs</p>
       </div>
+
+      <CvUploadSection token={token!} />
 
       <ProfileForm profile={profile} />
       <ExperienceSection experiences={profile?.experiences ?? []} />
